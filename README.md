@@ -1,7 +1,7 @@
-# 🗳️ Voting Application  
+# 🗳️ Voting Systemm  
 
 ## Overview  
-The **Voting Application** is a web-based system built using **Spring Boot, Thymeleaf, SQL, and Hibernate**. This application provides a secure and efficient platform for conducting online voting with **role-based access control** for administrators and voters.  
+The **Voting Systemm** is a web-based system built using **Spring Boot, Thymeleaf, SQL, and Hibernate**. This application provides a secure and efficient platform for conducting online voting with **role-based access control** for administrators and voters.  
 
 ## Features  
 ✅ **User Authentication & Authorization** – Secure login and access control for voters and admins.  
@@ -26,7 +26,7 @@ The **Voting Application** is a web-based system built using **Spring Boot, Thym
 ### Installation Steps  
 1️⃣ **Clone the repository:**  
    ```bash
-   git clone https://github.com/yourusername/voting-application.git
+   git clone https://github.com/maheshphatangare/Voting Systemm.git
    cd voting-System
  Configure the database:
 
