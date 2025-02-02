@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
+    <title>Create new Poll</title>
+    <style>
+        .container {
+            width: 50%;
+            margin: auto;
+        }
+
+        .option {
+            margin-bottom: 10px;
+        }
+
+        button {
+            padding: 8px 16px;
+            background-color: #337ab7;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color:green;
+        }
+
+        a {
+            text-decoration: none;
+            color: #337ab7;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+<div class="container" >
+    <h1><legend>Create A New Poll</legend></h1>
+    <form th:action="@{/polls/create}" th:object="${poll}" method="post">
+        <div class="option">
+            <label for="question">Poll Title:</label>
+            <input type="text" class="form-control" id="question" th:field="*{question}" required />
+        </div>
+         <div class="option">
+            <label for="question">Poll Description:</label>
+            <input type="text" class="form-control" id="description" th:field="*{description}" required />
+        </div>
+
+        <div id="options">
+            <div class="option" th:each="option, iterStat : *{options}">
+                <label th:for="'optionText' + ${iterStat.index + 1}">Option [[${iterStat.index + 1}]]:</label>
+                <input type="text" class="form-control" th:id="'optionText' + ${iterStat.index + 1}" th:field="*{options[__${iterStat.index}__].text}" required />
+            </div>
+        </div>
+
+        <button type="submit" class="btn btn-primary my-1">Create New Poll</button>
+    </form>
+    <br/>
+    <a href="/polls">Back to Polls</a>
+</div>
+
+
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-Fy6S3B9q64WdZWQUiU+q4/2Lc9npb8tCaSX9FK7E8HnRr0Jz8D6OP9dO5Vg3Q9ct" crossorigin="anonymous"></script>
+
+</body>
+</html>

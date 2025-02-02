@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title th:text="'Results for: ' + ${poll.question}">Poll Results</title>
+    <style>
+        .container {
+            width: 50%;
+            margin: auto;
+        }
+
+        .option {
+            margin-bottom: 10px;
+        }
+
+        a {
+            text-decoration: none;
+            color: #337ab7;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <h1 th:text="'Poll Title : ' + ${poll.question}">Poll Results</h1>
+    <h3 th:text="'Description of: ' + ${poll.description}">Poll Results</h3>
+   <!--  --> <div th:each="option : ${poll.options}" class="option">
+      <strong >Option Text</strong>: <span th:text="${option.votes}">0</span>   votes
+    </div><!--  -->
+    <br/>
+    <a th:href="@{/polls}">Back to Polls</a>
+</div>
+</body>
+</html>

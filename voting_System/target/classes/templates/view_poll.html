@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title th:text="${poll.question}">Poll Question</title>
+    <style>
+        .container {
+            width: 50%;
+            margin: auto;
+        }
+
+        .option {
+            margin-bottom: 10px;
+        }
+
+        button {
+            padding: 8px 16px;
+            background-color: #337ab7;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #286090;
+        }
+
+        a {
+            text-decoration: none;
+            color: #337ab7;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <h1 th:text="${poll.question}">Sample Question?</h1>
+    <h1 th:text="${poll.description}">Description?</h1>
+    <form th:action="@{/polls/{id}/vote(id=${poll.id})}"  method="post">
+        <div th:each="option : ${poll.options}" class="option">
+            <label>
+                <input type="radio" name="optionId" th:value="${option.id}" required />
+                <span th:text="${option.text}">Option Text</span>
+            </label>
+        </div>
+        <button type="submit" >Vote</button>
+    </form>
+    <br/>
+    <a th:href="@{/polls}">Back to Polls</a>
+</div>
+</body>
+</html>
