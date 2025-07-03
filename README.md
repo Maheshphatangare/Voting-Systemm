@@ -18,10 +18,6 @@ voting-app/
 │ └── ...
 └── README.md # Project overview and instructions
 
-markdown
-Copy
-Edit
-
 ## 🚀 Prerequisites
 
 - **Node.js** (v14 or higher) and **npm** or **yarn**  
