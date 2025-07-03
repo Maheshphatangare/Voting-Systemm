@@ -4,6 +4,8 @@ This repository contains a full-stack Voting System application, with a **React*
 
 ## 📁 Folder Structure
 
+
+
 voting-app/
 ├── frontend/ # React application
 │ ├── public/ # Static assets and index.html
