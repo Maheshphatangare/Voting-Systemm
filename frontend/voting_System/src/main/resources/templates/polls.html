@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Polls</title>
+</head>
+<body>
+    <h1>Polls</h1>
+    <a href="/polls/create">Create New Poll</a>
+    <ul>
+        <li th:each="poll : ${polls}">
+            <h2 th:text="${poll.question}">Poll Question</h2>
+            <form th:action="@{/polls/{id}/vote(id=${poll.id})}" th:href="@{/polls/create}" method="post">
+         <!-- <form th:action="@{/polls/{id}/vote(id=${poll.id})}" method="post"> -->   
+            
+                <ul>
+                    <li th:each="option : ${poll.options}">
+                        <label>/
+                            <input type="radio" th:name="'optionId'" th:value="${option.id}" required />
+                            <span th:text="${option.text}">Option Text</span>
+                        </label>
+                    </li>
+                </ul>
+                <button type="submit" th:href="@{/polls/create}" >Vote</button>
+            </form>
+            <a th:href="@{/polls/{id}/results(id=${poll.id})}">View Results</a>
+        </li>
+    </ul>
+</body>
+</html>
