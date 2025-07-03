@@ -66,7 +66,7 @@ cd ../frontend
 npm start          # or yarn start
 ```
 
-The React app will open at [**http://localhost:3000**](http://localhost:3000) and proxy API calls to port 8080.
+The React app will open at [**http://localhost:5173**]([http://localhost:5173/]) and proxy API calls to port 8080.
 
 ## 🛠️ API Endpoints (Backend)
 
